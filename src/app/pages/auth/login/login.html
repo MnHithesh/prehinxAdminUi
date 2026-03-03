@@ -67,8 +67,11 @@
           [disabled]="loginForm.invalid || isSubmitting"
           class="w-full py-3 rounded-xl bg-[#181b22]/80 hover:bg-[#181b22] text-white font-medium transition disabled:opacity-50"
         >
-          <span *ngIf="!isSubmitting">Login</span>
-          <span *ngIf="isSubmitting">Loading...</span>
+          @if (!isSubmitting) {
+            <span>Login</span>
+          } @else {
+            <span>Loading...</span>
+          }
         </button>
       </form>
     </div>
