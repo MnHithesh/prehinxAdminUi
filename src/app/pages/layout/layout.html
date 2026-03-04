@@ -1,0 +1,36 @@
+<mat-drawer-container class="container" autosize>
+
+  <!-- Sidebar -->
+  <mat-drawer
+    #drawer
+    class="sidenav"
+    mode="side"
+    opened
+    style="border-radius: 0px !important"
+    (openedChange)="onDrawerChange($event)"
+  >
+
+    @if (isDrawerOpen) {
+      <button mat-mini-fab class="toggle-btn-left" (click)="drawer.toggle()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+    }
+
+  </mat-drawer>
+
+  <!-- Main content -->
+  <mat-drawer-content class="sidenav-content">
+
+    @if (!isDrawerOpen) {
+      <button mat-mini-fab class="toggle-btn-right" (click)="drawer.toggle()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    }
+
+    <main class="flex-1 overflow-y-auto p-8">
+      <router-outlet></router-outlet>
+    </main>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>
